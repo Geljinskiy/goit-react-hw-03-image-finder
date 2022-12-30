@@ -1,5 +1,4 @@
 import { Formik, Form, Field } from 'formik';
-import { BiSearch } from 'react-icons/bi';
 import PropTypes from 'prop-types';
 
 import '../../styles/styles.css';
