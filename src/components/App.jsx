@@ -50,12 +50,13 @@ export class App extends React.Component {
       });
     } catch (error) {
       console.log('error :', error);
+    } finally {
     }
   }
 
   onFormSubmit = value => {
     //assign new query and set current page as default
-    this.setState({ query: value, currentPage: 1 });
+    this.setState({ query: value, currentPage: 1, images: [] });
   };
 
   onLoadingMore = () => {
