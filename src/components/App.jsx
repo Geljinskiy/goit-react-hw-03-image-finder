@@ -23,12 +23,6 @@ export class App extends React.Component {
   async componentDidUpdate(prevProps, prevState) {
     const { currentPage, query, totalPages } = this.state;
 
-    //scroll down after adding gallery items
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth',
-    });
-
     if (prevState.query === query && prevState.currentPage === currentPage) {
       return;
     }
@@ -48,6 +42,14 @@ export class App extends React.Component {
         canLoadMore: totalImages > findedImages.length,
         status: findedImages.length > 0 ? 'success' : 'not found',
       });
+      
+      if (currentPage !== 1) {
+        //scroll down after adding gallery items
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: 'smooth',
+        });
+      }
     } catch (error) {
       console.log('error :', error);
     }
